@@ -1,0 +1,21 @@
+﻿<Application
+    x:Class="Kryptor.App"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Kryptor">
+    <Application.Resources>
+        <Style TargetType="TextBox" x:Key="IOBox">
+            <Setter Property="Margin" Value="10,4,10,8"/>
+            <Setter Property="VerticalAlignment" Value="Stretch"/>
+            <Setter Property="HorizontalAlignment" Value="Stretch"/>
+            <Setter Property="PlaceholderText" Value="Input Box"/>
+            <Setter Property="TextWrapping" Value="Wrap"/>
+            <Setter Property="FontSize" Value="20"/>
+            <Setter Property="PlaceholderText" Value="Type"/>
+        </Style>
+        <Style TargetType="TextBlock" x:Key="IOLabel">
+            <Setter Property="Margin" Value="10,10,10,0"/>
+            <Setter Property="FontSize" Value="20"/>
+        </Style>
+    </Application.Resources>
+</Application>
