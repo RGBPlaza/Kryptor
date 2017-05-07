@@ -14,11 +14,14 @@
             <RowDefinition Height="auto"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-
+        
+        <Rectangle Name="BackgroundHolder"/>
+        <Rectangle HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Fill="{ThemeResource ApplicationPageBackgroundThemeBrush}" Opacity="0.6" Grid.RowSpan="4"/>
+        
         <TextBlock Grid.Row="0" Style="{StaticResource IOLabel}" Text="Text:"/>
-        <TextBox Grid.Row="1" Name="textTextBox" Style="{StaticResource IOBox}" InputScope="Text" KeyUp="textTextBox_KeyUp"/>
-        <TextBlock Grid.Row="2" Style="{StaticResource IOLabel}" Text="8-bit ASCII:"/>
-        <TextBox Grid.Row="3" Name="asciiTextBox" Style="{StaticResource IOBox}" InputScope="Number" KeyUp="asciiTextBox_KeyUp"/>
+        <TextBox Grid.Row="1" Name="textTextBox" Style="{StaticResource IOBox}" InputScope="Text" KeyUp="textTextBox_KeyUp" Template="{StaticResource IOBoxTemplate}"/>
+        <TextBlock Grid.Row="2" Style="{StaticResource IOLabel}" Text="Unicode:"/>
+        <TextBox Grid.Row="3" Name="asciiTextBox" Style="{StaticResource IOBox}" InputScope="Number" KeyUp="asciiTextBox_KeyUp" Template="{StaticResource IOBoxTemplate}"/>
 
     </Grid>
 </Page>

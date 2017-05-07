@@ -35,13 +35,16 @@
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
 
-        <TextBox Name="aTextBox" Style="{StaticResource constantBox}" KeyUp="aTextBox_KeyUp" PlaceholderText="a" Grid.Column="0" InputScope="Number"/>
+        <Rectangle Name="BackgroundHolder"/>
+        <Rectangle HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Fill="{ThemeResource ApplicationPageBackgroundThemeBrush}" Opacity="0.6" Grid.RowSpan="3" Grid.ColumnSpan="5"/>
+
+        <TextBox Name="aTextBox" Style="{StaticResource constantBox}" KeyUp="aTextBox_KeyUp" PlaceholderText="a" Grid.Column="0" InputScope="Number" Template="{StaticResource IOBoxTemplate}"/>
         <TextBlock FontFamily="Fonts/scriptFont.ttf#scriptFont" Text="X^2" Style="{StaticResource constantBlock}" Grid.Column="1"/>
         <TextBlock Text="+" Style="{StaticResource constantBlock}" Grid.Column="1" Margin="50,8,10,10"/>
-        <TextBox Name="bTextBox" Style="{StaticResource constantBox}" KeyUp="aTextBox_KeyUp" PlaceholderText="b" Grid.Column="2" InputScope="Number" />
+        <TextBox Name="bTextBox" Style="{StaticResource constantBox}" KeyUp="aTextBox_KeyUp" PlaceholderText="b" Grid.Column="2" InputScope="Number" Template="{StaticResource IOBoxTemplate}" />
         <TextBlock FontFamily="Fonts/scriptFont.ttf#scriptFont" Text="X" Style="{StaticResource constantBlock}" Grid.Column="3"/>
         <TextBlock Text="+" Style="{StaticResource constantBlock}" Grid.Column="3" Margin="30,8,10,10"/>
-        <TextBox Name="cTextBox" Style="{StaticResource constantBox}" KeyUp="aTextBox_KeyUp" PlaceholderText="c" Grid.Column="4" InputScope="Number"/>
+        <TextBox Name="cTextBox" Style="{StaticResource constantBox}" KeyUp="aTextBox_KeyUp" PlaceholderText="c" Grid.Column="4" InputScope="Number" Template="{StaticResource IOBoxTemplate}"/>
 
         <ScrollViewer Grid.Row="1" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Disabled" HorizontalAlignment="Stretch"  Margin="10,-5,10,5" Grid.ColumnSpan="5">
             <TextBlock FontFamily="Fonts/scriptFont.ttf#scriptFont" Name="outputBlock" Text="X = ?, ?" FontSize="40"/>

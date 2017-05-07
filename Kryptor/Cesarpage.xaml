@@ -15,6 +15,9 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height="auto"/>
         </Grid.RowDefinitions>
+        
+        <Rectangle Name="BackgroundHolder"/>
+        <Rectangle HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Fill="{ThemeResource ApplicationPageBackgroundThemeBrush}" Opacity="0.6" Grid.RowSpan="5"/>
 
         <TextBlock Grid.Row="0" Style="{StaticResource IOLabel}" Text="Plaintext:"/>
         <TextBox Grid.Row="1" Name="deTextBox" Style="{StaticResource IOBox}" InputScope="Text" KeyUp="deTextBox_KeyUp"/>

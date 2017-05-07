@@ -7,19 +7,20 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="auto"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-
+        
+        <Rectangle Name="BackgroundHolder"/>
+        <Rectangle HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Fill="{ThemeResource ApplicationPageBackgroundThemeBrush}" Opacity="0.6" Grid.RowSpan="4"/>
+        
         <TextBlock Grid.Row="0" Style="{StaticResource IOLabel}" Text="Decimal:"/>
-        <TextBox Grid.Row="1" Name="decTextBox" Style="{StaticResource IOBox}" InputScope="Number" KeyUp="decTextBox_KeyUp"/>
+        <TextBox Grid.Row="1" Name="decTextBox" Style="{StaticResource IOBox}" InputScope="Number" KeyUp="decTextBox_KeyUp" Template="{StaticResource IOBoxTemplate}"/>
         <TextBlock Grid.Row="2" Style="{StaticResource IOLabel}" Text="Binary:"/>
-        <TextBox Grid.Row="3" Name="binTextBox" Style="{StaticResource IOBox}" InputScope="Number" KeyUp="binTextBox_KeyUp"/>
-
-
+        <TextBox Grid.Row="3" Name="binTextBox" Style="{StaticResource IOBox}" InputScope="Number" KeyUp="binTextBox_KeyUp" Template="{StaticResource IOBoxTemplate}"/>
     </Grid>
 </Page>

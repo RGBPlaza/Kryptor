@@ -7,14 +7,19 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
-    <StackPanel Orientation="Vertical" Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <TextBlock Text="Kryptor" FontSize="25" Margin="10,10,10,10"/>
-        <StackPanel Orientation="Horizontal" Margin="10,0,10,10">
-            <TextBlock Text="©" FontSize="20" Margin="0,0,10,0"/>
-            <TextBlock Text="R" Foreground="Red" FontSize="20"/>
-            <TextBlock Text="G" Foreground="Lime" FontSize="20"/>
-            <TextBlock Text="B" Foreground="Turquoise" FontSize="20"/>
-            <TextBlock Text="Plaza Development 2016" FontSize="20"/>
+    <Grid>
+        <Rectangle Name="BackgroundHolder"/>
+        <Rectangle HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Fill="{ThemeResource ApplicationPageBackgroundThemeBrush}" Opacity="0.6" Grid.RowSpan="4"/>
+
+        <StackPanel Orientation="Vertical">
+            <TextBlock Text="KRYPTOR" FontSize="35" FontWeight="Light" Margin="12,12,12,0" VerticalAlignment="Stretch"/>
+            <StackPanel Orientation="Horizontal" Margin="12,0,12,12">
+                <Rectangle HorizontalAlignment="Stretch" />
+                <TextBlock Text="Made with" FontSize="25"  FontWeight="Light"/>
+                <TextBlock Text="&#xE00B;" FontSize="20" FontFamily="Segoe MDL2 Assets" Height="20" Margin="8"/>
+                <TextBlock Text="by RGBPlaza" FontSize="25"  FontWeight="Light"/>
+                <TextBlock Text=" ©" FontSize="25" Opacity="0.3" FontWeight="Light"/>
+            </StackPanel>
         </StackPanel>
-    </StackPanel>
+    </Grid>
 </Page>

@@ -1,17 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Runtime.InteropServices.WindowsRuntime;
-using Windows.Foundation;
-using Windows.Foundation.Collections;
+﻿using Microsoft.Graphics.Canvas.Effects;
+using Windows.UI;
+using Windows.UI.Composition;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Controls.Primitives;
-using Windows.UI.Xaml.Data;
+using Windows.UI.Xaml.Hosting;
 using Windows.UI.Xaml.Input;
-using Windows.UI.Xaml.Media;
-using Windows.UI.Xaml.Navigation;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
 
@@ -25,7 +18,50 @@ namespace Kryptor
         public MainPage()
         {
             this.InitializeComponent();
+            Loaded += OnLoaded;
             NavFrame.Navigate(typeof(Dec2Binpage));
+            Window.Current.SizeChanged += OnSizeAllocated;
+        }
+
+        private void OnLoaded(object sender, RoutedEventArgs e)
+        {
+            SetBlur(ActualWidth, ActualHeight);
+        }
+
+        private void SetBlur(double width, double height)
+        {
+            GaussianBlurEffect blurEffect = new GaussianBlurEffect()
+            {
+                Name = "Blur",
+                BlurAmount = 5.0f, // You can place your blur amount here.
+                BorderMode = EffectBorderMode.Hard,
+                Optimization = EffectOptimization.Balanced,
+                Source = new CompositionEffectSourceParameter("source")
+            };
+
+            var menuVisual = ElementCompositionPreview.GetElementVisual(this as UIElement);
+            var compositor = menuVisual.Compositor;
+
+            var blurEffectFactory = compositor.CreateEffectFactory(blurEffect);
+
+            var effectBrush = blurEffectFactory.CreateBrush();
+            effectBrush.SetSourceParameter("source", compositor.CreateHostBackdropBrush());
+
+            SpriteVisual HamburgerBlurVisual = compositor.CreateSpriteVisual();
+            HamburgerBlurVisual.Brush = effectBrush;
+            HamburgerBlurVisual.Size = new System.Numerics.Vector2((float)width, (float)height);
+
+            SpriteVisual AppBarBlurVisual = compositor.CreateSpriteVisual();
+            AppBarBlurVisual.Brush = effectBrush;
+            AppBarBlurVisual.Size = new System.Numerics.Vector2((float)width, (float)height);
+
+            ElementCompositionPreview.SetElementChildVisual(BackgroundHolder, HamburgerBlurVisual);
+            ElementCompositionPreview.SetElementChildVisual(AppBarBackgroundHolder, AppBarBlurVisual);
+        }
+
+        private void OnSizeAllocated(object sender, Windows.UI.Core.WindowSizeChangedEventArgs e)
+        {
+            SetBlur(e.Size.Width, e.Size.Height);
         }
 
         private void HamburgerButton_Click(object sender, RoutedEventArgs e)
@@ -33,48 +69,63 @@ namespace Kryptor
             HamburgerMenu.IsPaneOpen = !HamburgerMenu.IsPaneOpen;
         }
 
-        private void ListView_Tapped(object sender, TappedRoutedEventArgs e)
-        {
-            HamburgerMenu.IsPaneOpen = false;
-        }
-
         private void Dec2BinBtn_Tapped(object sender, TappedRoutedEventArgs e)
         {
-            NavFrame.Navigate(typeof(Dec2Binpage));
-            SettingsBtn.IsSelected = false;
-            PageTextBlock.Text = "Decimal / Binary";
+            if (PageTextBlock.Text != "DECIMAL / BINARY")
+            {
+                NavFrame.Navigate(typeof(Dec2Binpage));
+                SettingsBtn.IsSelected = false;
+                PageTextBlock.Text = "DECIMAL / BINARY";
+            }
         }
 
         private void QuadraticBtn_Tapped(object sender, TappedRoutedEventArgs e)
         {
-            NavFrame.Navigate(typeof(Quadraticpage));
-            SettingsBtn.IsSelected = false;
-            PageTextBlock.Text = "Quadratic Calculator";
+            if (PageTextBlock.Text != "QUADRATIC CALCULATOR")
+            {
+                NavFrame.Navigate(typeof(Quadraticpage));
+                SettingsBtn.IsSelected = false;
+                PageTextBlock.Text = "QUADRATIC CALCULATOR";
+            }
         }
 
         private void SettingsBtn_Tapped(object sender, TappedRoutedEventArgs e)
         {
-            NavFrame.Navigate(typeof(Settingspage));
-            Dec2BinBtn.IsSelected = false;
-            QuadraticBtn.IsSelected = false;
-            AsciiBtn.IsSelected = false;
-            CesarBtn.IsSelected = false;
+            if (PageTextBlock.Text != "ABOUT + SETTINGS")
+            {
+                NavFrame.Navigate(typeof(Settingspage));
+                Dec2BinBtn.IsSelected = false;
+                QuadraticBtn.IsSelected = false;
+                AsciiBtn.IsSelected = false;
+                CesarBtn.IsSelected = false;
 
-            PageTextBlock.Text = "About + Settings";
+                PageTextBlock.Text = "ABOUT + SETTINGS";
+            }
         }
 
         private void AsciiBtn_Tapped(object sender, TappedRoutedEventArgs e)
         {
-            NavFrame.Navigate(typeof(Asciipage));
-            SettingsBtn.IsSelected = false;
-            PageTextBlock.Text = "Text / ASCII";
+            if (PageTextBlock.Text != "TEXT / UNICODE")
+            {
+                NavFrame.Navigate(typeof(Asciipage));
+                SettingsBtn.IsSelected = false;
+                PageTextBlock.Text = "TEXT / UNICODE";
+            }
         }
 
         private void CesarBtn_Tapped(object sender, TappedRoutedEventArgs e)
         {
-            NavFrame.Navigate(typeof(Cesarpage));
-            SettingsBtn.IsSelected = false;
-            PageTextBlock.Text = "Caesar Cypher";
+            if (PageTextBlock.Text != "CAESAR CIPHER")
+            {
+                NavFrame.Navigate(typeof(Cesarpage));
+                SettingsBtn.IsSelected = false;
+                PageTextBlock.Text = "CAESAR CIPHER";
+            }
+        }
+
+        private void UpperListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            HamburgerMenu.IsPaneOpen = false;
         }
     }
 }

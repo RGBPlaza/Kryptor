@@ -13,6 +13,10 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 using System.Text;
+using Windows.UI.Composition;
+using Microsoft.Graphics.Canvas.Effects;
+using Windows.UI.Core;
+using Windows.UI.Xaml.Hosting;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -77,6 +81,34 @@ namespace Kryptor
         public Cesarpage()
         {
             this.InitializeComponent();
+            Loaded += (s, e) => { SetBlur(ActualWidth, ActualHeight); };
+            Window.Current.SizeChanged += (s, e) => { SetBlur(e.Size.Width, e.Size.Height); };
+        }
+
+        private void SetBlur(double width, double height)
+        {
+            GaussianBlurEffect blurEffect = new GaussianBlurEffect()
+            {
+                Name = "Blur",
+                BlurAmount = 5.0f, // You can place your blur amount here.
+                BorderMode = EffectBorderMode.Hard,
+                Optimization = EffectOptimization.Balanced,
+                Source = new CompositionEffectSourceParameter("source")
+            };
+
+            var menuVisual = ElementCompositionPreview.GetElementVisual(this as UIElement);
+            var compositor = menuVisual.Compositor;
+
+            var blurEffectFactory = compositor.CreateEffectFactory(blurEffect);
+
+            var effectBrush = blurEffectFactory.CreateBrush();
+            effectBrush.SetSourceParameter("source", compositor.CreateHostBackdropBrush());
+
+            SpriteVisual visual = compositor.CreateSpriteVisual();
+            visual.Brush = effectBrush;
+            visual.Size = new System.Numerics.Vector2((float)width, (float)height);
+
+            ElementCompositionPreview.SetElementChildVisual(BackgroundHolder, visual);
         }
 
         private void enTextBox_KeyUp(object sender, KeyRoutedEventArgs e)
