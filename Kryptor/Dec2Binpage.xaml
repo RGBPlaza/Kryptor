@@ -16,11 +16,11 @@
         </Grid.RowDefinitions>
         
         <Rectangle Name="BackgroundHolder"/>
-        <Rectangle HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Fill="{ThemeResource ApplicationPageBackgroundThemeBrush}" Opacity="0.6" Grid.RowSpan="4"/>
+        <Rectangle HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Fill="{ThemeResource ApplicationPageBackgroundThemeBrush}" Opacity="0.8" Grid.RowSpan="4"/>
         
-        <TextBlock Grid.Row="0" Style="{StaticResource IOLabel}" Text="Decimal:"/>
+        <TextBlock Grid.Row="0" Style="{StaticResource IOLabel}" Text="DECIMAL"/>
         <TextBox Grid.Row="1" Name="decTextBox" Style="{StaticResource IOBox}" InputScope="Number" KeyUp="decTextBox_KeyUp" Template="{StaticResource IOBoxTemplate}"/>
-        <TextBlock Grid.Row="2" Style="{StaticResource IOLabel}" Text="Binary:"/>
+        <TextBlock Grid.Row="2" Style="{StaticResource IOLabel}" Text="BINARY"/>
         <TextBox Grid.Row="3" Name="binTextBox" Style="{StaticResource IOBox}" InputScope="Number" KeyUp="binTextBox_KeyUp" Template="{StaticResource IOBoxTemplate}"/>
     </Grid>
 </Page>

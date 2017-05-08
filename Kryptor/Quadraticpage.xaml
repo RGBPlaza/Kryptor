@@ -18,6 +18,7 @@
             <Setter Property="Height" Value="25"/>
             <Setter Property="HorizontalAlignment" Value="Stretch"/>
             <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="FontFamily" Value="Script MT"/>
         </Style>
     </Page.Resources>
 
@@ -39,15 +40,16 @@
         <Rectangle HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Fill="{ThemeResource ApplicationPageBackgroundThemeBrush}" Opacity="0.6" Grid.RowSpan="3" Grid.ColumnSpan="5"/>
 
         <TextBox Name="aTextBox" Style="{StaticResource constantBox}" KeyUp="aTextBox_KeyUp" PlaceholderText="a" Grid.Column="0" InputScope="Number" Template="{StaticResource IOBoxTemplate}"/>
-        <TextBlock FontFamily="Fonts/scriptFont.ttf#scriptFont" Text="X^2" Style="{StaticResource constantBlock}" Grid.Column="1"/>
-        <TextBlock Text="+" Style="{StaticResource constantBlock}" Grid.Column="1" Margin="50,8,10,10"/>
+        <TextBlock Text="X" Style="{StaticResource constantBlock}" Grid.Column="1" Margin="28,8,0,0"/>
+        <TextBlock Text="2" Style="{StaticResource constantBlock}" Grid.Column="1" Margin="40,-2,0,0" FontSize="10"/>
+        <TextBlock Text="+" Style="{StaticResource constantBlock}" Grid.Column="1" Margin="50,14,10,10"/>
         <TextBox Name="bTextBox" Style="{StaticResource constantBox}" KeyUp="aTextBox_KeyUp" PlaceholderText="b" Grid.Column="2" InputScope="Number" Template="{StaticResource IOBoxTemplate}" />
-        <TextBlock FontFamily="Fonts/scriptFont.ttf#scriptFont" Text="X" Style="{StaticResource constantBlock}" Grid.Column="3"/>
-        <TextBlock Text="+" Style="{StaticResource constantBlock}" Grid.Column="3" Margin="30,8,10,10"/>
+        <TextBlock Text="X" Style="{StaticResource constantBlock}" Grid.Column="3" Margin="12,8,0,0"/>
+        <TextBlock Text="+" Style="{StaticResource constantBlock}" Grid.Column="3" Margin="30,14,10,10"/>
         <TextBox Name="cTextBox" Style="{StaticResource constantBox}" KeyUp="aTextBox_KeyUp" PlaceholderText="c" Grid.Column="4" InputScope="Number" Template="{StaticResource IOBoxTemplate}"/>
 
         <ScrollViewer Grid.Row="1" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Disabled" HorizontalAlignment="Stretch"  Margin="10,-5,10,5" Grid.ColumnSpan="5">
-            <TextBlock FontFamily="Fonts/scriptFont.ttf#scriptFont" Name="outputBlock" Text="X = ?, ?" FontSize="40"/>
+            <TextBlock FontFamily="script mt" Name="outputBlock" Text="X = ?, ?" FontSize="40"/>
         </ScrollViewer>
     </Grid>
 </Page>

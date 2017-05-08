@@ -82,6 +82,5 @@ namespace Kryptor
                 outputBlock.Text = "X = ?, ?";
             }
         }
-
     }
 }

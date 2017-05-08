@@ -15,7 +15,8 @@
         </Style>
         <Style TargetType="TextBlock" x:Key="IOLabel">
             <Setter Property="Margin" Value="10,10,10,0"/>
-            <Setter Property="FontSize" Value="20"/>
+            <Setter Property="FontSize" Value="25"/>
+            <Setter Property="FontWeight" Value="Light"/>
         </Style>
         <ControlTemplate x:Key="IOBoxTemplate" TargetType="TextBox">
             <Grid>

@@ -36,8 +36,6 @@ namespace Kryptor
             this.InitializeComponent();
             this.Suspending += OnSuspending;
         }
-        
-        public static Compositor Comp;
 
         /// <summary>
         /// Invoked when the application is launched normally by the end user.  Other entry points
@@ -48,8 +46,6 @@ namespace Kryptor
         {
 
             Frame rootFrame = Window.Current.Content as Frame;
-            //Visual root = ElementCompositionPreview.GetElementVisual(rootFrame);
-            Comp = Window.Current.Compositor;
 
             // Do not repeat app initialization when the Window already has content,
             // just ensure that the window is active

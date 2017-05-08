@@ -18,9 +18,9 @@
         <Rectangle Name="BackgroundHolder"/>
         <Rectangle HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Fill="{ThemeResource ApplicationPageBackgroundThemeBrush}" Opacity="0.6" Grid.RowSpan="4"/>
         
-        <TextBlock Grid.Row="0" Style="{StaticResource IOLabel}" Text="Text:"/>
+        <TextBlock Grid.Row="0" Style="{StaticResource IOLabel}" Text="TEXT"/>
         <TextBox Grid.Row="1" Name="textTextBox" Style="{StaticResource IOBox}" InputScope="Text" KeyUp="textTextBox_KeyUp" Template="{StaticResource IOBoxTemplate}"/>
-        <TextBlock Grid.Row="2" Style="{StaticResource IOLabel}" Text="Unicode:"/>
+        <TextBlock Grid.Row="2" Style="{StaticResource IOLabel}" Text="UNICODE"/>
         <TextBox Grid.Row="3" Name="asciiTextBox" Style="{StaticResource IOBox}" InputScope="Number" KeyUp="asciiTextBox_KeyUp" Template="{StaticResource IOBoxTemplate}"/>
 
     </Grid>
