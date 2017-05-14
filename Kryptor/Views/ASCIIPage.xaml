@@ -1,0 +1,24 @@
+﻿<Page
+    x:Class="Kryptor.Views.ASCIIPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Kryptor"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock Grid.Row="0" Style="{StaticResource IOLabel}" Text="Text"/>
+        <TextBox Grid.Row="1" Name="textTextBox" Style="{StaticResource IOBox}" Template="{StaticResource IOBoxTemplate}" InputScope="Text" KeyUp="AlphanumericUpdated"/>
+        <TextBlock Grid.Row="2" Style="{StaticResource IOLabel}" Text="Unicode"/>
+        <TextBox Grid.Row="3" Name="asciiTextBox" Style="{StaticResource IOBox}" Template="{StaticResource IOBoxTemplate}" InputScope="Number" KeyUp="AsciiUpdated"/>
+
+    </Grid>
+</Page>

@@ -20,14 +20,14 @@ using Windows.UI.Xaml.Hosting;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234238
 
-namespace Kryptor
+namespace Kryptor.Views
 {
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
     /// 
 
-    public sealed partial class Cesarpage : Page
+    public sealed partial class CaesarPage : Page
     {
         static int charNo;
         static int newCharNo;
@@ -78,52 +78,24 @@ namespace Kryptor
             return outString;
         }
 
-        public Cesarpage()
+        public CaesarPage()
         {
             this.InitializeComponent();
-            Loaded += (s, e) => { SetBlur(ActualWidth, ActualHeight); };
-            Window.Current.SizeChanged += (s, e) => { SetBlur(e.Size.Width, e.Size.Height); };
         }
 
-        private void SetBlur(double width, double height)
-        {
-            GaussianBlurEffect blurEffect = new GaussianBlurEffect()
-            {
-                Name = "Blur",
-                BlurAmount = 5.0f, // You can place your blur amount here.
-                BorderMode = EffectBorderMode.Hard,
-                Optimization = EffectOptimization.Balanced,
-                Source = new CompositionEffectSourceParameter("source")
-            };
-
-            var menuVisual = ElementCompositionPreview.GetElementVisual(this as UIElement);
-            var compositor = menuVisual.Compositor;
-
-            var blurEffectFactory = compositor.CreateEffectFactory(blurEffect);
-
-            var effectBrush = blurEffectFactory.CreateBrush();
-            effectBrush.SetSourceParameter("source", compositor.CreateHostBackdropBrush());
-
-            SpriteVisual visual = compositor.CreateSpriteVisual();
-            visual.Brush = effectBrush;
-            visual.Size = new System.Numerics.Vector2((float)width, (float)height);
-
-            ElementCompositionPreview.SetElementChildVisual(BackgroundHolder, visual);
-        }
-
-        private void enTextBox_KeyUp(object sender, KeyRoutedEventArgs e)
+        private void EnTextBox_KeyUp(object sender, KeyRoutedEventArgs e)
         {
             deTextBox.Text = Caesar(enTextBox.Text, (offsetSlider.Value * -1));
             boxNo = 0;
         }
 
-        private void deTextBox_KeyUp(object sender, KeyRoutedEventArgs e)
+        private void DeTextBox_KeyUp(object sender, KeyRoutedEventArgs e)
         {
             enTextBox.Text = Caesar(deTextBox.Text, offsetSlider.Value);
             boxNo = 1;
         }
 
-        private void offsetSlider_ValueChanged(object sender, RangeBaseValueChangedEventArgs e)
+        private void OffsetSlider_ValueChanged(object sender, RangeBaseValueChangedEventArgs e)
         {
             if (boxNo == 0 && enTextBox.Text != "")
             {

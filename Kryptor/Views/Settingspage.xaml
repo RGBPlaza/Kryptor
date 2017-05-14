@@ -8,11 +8,8 @@
     mc:Ignorable="d">
 
     <Grid>
-        <Rectangle Name="BackgroundHolder"/>
-        <Rectangle HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Fill="{ThemeResource ApplicationPageBackgroundThemeBrush}" Opacity="0.6" Grid.RowSpan="4"/>
-
         <StackPanel Orientation="Vertical">
-            <TextBlock Text="KRYPTOR" FontSize="35" FontWeight="Light" Margin="12,12,12,0" VerticalAlignment="Stretch"/>
+            <TextBlock Text="Kryptor" FontSize="35" FontWeight="SemiLight" Margin="12,0" VerticalAlignment="Stretch"/>
             <StackPanel Orientation="Horizontal" Margin="12,0,12,12">
                 <Rectangle HorizontalAlignment="Stretch" />
                 <TextBlock Text="Made with" FontSize="25"  FontWeight="Light"/>

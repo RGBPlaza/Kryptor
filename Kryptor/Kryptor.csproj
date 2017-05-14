@@ -11,8 +11,8 @@
     <AssemblyName>Kryptor</AssemblyName>
     <DefaultLanguage>en-GB</DefaultLanguage>
     <TargetPlatformIdentifier>UAP</TargetPlatformIdentifier>
-    <TargetPlatformVersion>10.0.15063.0</TargetPlatformVersion>
-    <TargetPlatformMinVersion>10.0.10586.0</TargetPlatformMinVersion>
+    <TargetPlatformVersion>10.0.16190.0</TargetPlatformVersion>
+    <TargetPlatformMinVersion>10.0.16190.0</TargetPlatformMinVersion>
     <MinimumVisualStudioVersion>14</MinimumVisualStudioVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{A5A43C5B-DE2A-4C0C-9213-0A381AF9435A};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -104,23 +104,23 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Asciipage.xaml.cs">
-      <DependentUpon>Asciipage.xaml</DependentUpon>
+    <Compile Include="Views\ASCIIPage.xaml.cs">
+      <DependentUpon>ASCIIPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Cesarpage.xaml.cs">
-      <DependentUpon>Cesarpage.xaml</DependentUpon>
+    <Compile Include="Views\CaesarPage.xaml.cs">
+      <DependentUpon>CaesarPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Dec2Binpage.xaml.cs">
-      <DependentUpon>Dec2Binpage.xaml</DependentUpon>
+    <Compile Include="Views\DecimalBinaryPage.xaml.cs">
+      <DependentUpon>DecimalBinaryPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="MainPage.xaml.cs">
+    <Compile Include="Views\MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Quadraticpage.xaml.cs">
-      <DependentUpon>Quadraticpage.xaml</DependentUpon>
+    <Compile Include="Views\QuadraticPage.xaml.cs">
+      <DependentUpon>QuadraticPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Settingspage.xaml.cs">
+    <Compile Include="Views\Settingspage.xaml.cs">
       <DependentUpon>Settingspage.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
@@ -146,27 +146,27 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Page Include="Asciipage.xaml">
+    <Page Include="Views\ASCIIPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Cesarpage.xaml">
+    <Page Include="Views\CaesarPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Dec2Binpage.xaml">
+    <Page Include="Views\DecimalBinaryPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="MainPage.xaml">
+    <Page Include="Views\MainPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Quadraticpage.xaml">
+    <Page Include="Views\QuadraticPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Settingspage.xaml">
+    <Page Include="Views\Settingspage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
