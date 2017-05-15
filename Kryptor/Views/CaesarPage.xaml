@@ -16,7 +16,7 @@
             <RowDefinition Height="auto"/>
         </Grid.RowDefinitions>
 
-        <TextBlock Grid.Row="0" Style="{StaticResource IOLabel}" Text="Plaintext"/>
+        <TextBlock Grid.Row="0" Style="{StaticResource IOLabel}" Text="Plain Text"/>
         <TextBox Grid.Row="1" Name="deTextBox" Style="{StaticResource IOBox}" Template="{StaticResource IOBoxTemplate}" InputScope="Text" KeyUp="DeTextBox_KeyUp"/>
         <TextBlock Grid.Row="2" Style="{StaticResource IOLabel}" Text="Encoded Text"/>
         <TextBox Grid.Row="3" Name="enTextBox" Style="{StaticResource IOBox}" Template="{StaticResource IOBoxTemplate}" InputScope="Text" KeyUp="EnTextBox_KeyUp"/>
